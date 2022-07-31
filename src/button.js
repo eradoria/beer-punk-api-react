@@ -1,19 +1,33 @@
-import React, { useState } from 'react';
+import React, { Component } from "react";
 
+class LikeButton extends Component {
+  constructor() {
+    super();
+    this.state = {
+      liked: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-const LikeButton = () => {
-  const [likes, setLikes] = useState(100);
-  const [isClicked, setIsClicked] = useState(false);
+  handleClick() {
+    this.setState({
+      liked: !this.state.liked
+    });
+  }
 
-  const handleClick = () => {
-    if (isClicked) {
-      setLikes(likes - 1);
-    } else {
-      setLikes(likes + 1);
-    }
-    setIsClicked(!isClicked);
-  };
+  render() {
+    const text = this.state.liked ? "liked" : "haven't liked";
+    const label = this.state.liked ? "Unlike" : "Like";
+
+    return (
+      <div>
+        <button className="btn-red" onClick={this.handleClick}>
+          {label}
+        </button>
+        <p>You {text} this. Click to toggle.</p>
+      </div>
+    );
+  }
 }
-
 
 export default LikeButton

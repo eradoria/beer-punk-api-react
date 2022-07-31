@@ -53,3 +53,9 @@ p{
   text-align: center;
 }
 
+.btn-red {
+    background-color: rgb(111, 159, 255);
+    color: white;
+    border-radius: 6px;
+    padding: 12px 20px;
+  }
